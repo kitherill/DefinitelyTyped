@@ -190,6 +190,7 @@ declare namespace GoogleAppsScript {
             getText(): string;
             getTextAlignment(): TextAlignment;
             getType(): ElementType;
+            insertParagraph(index: number, text: string): Paragraph;
             isAtDocumentEnd(): boolean;
             merge(): ContainerElement;
             removeFromParent(): ContainerElement;
@@ -373,10 +374,12 @@ declare namespace GoogleAppsScript {
             asTableRow(): TableRow;
             asText(): Text;
             copy(): Element;
+            findElement(elementType: ElementType, from: RangeElement): RangeElement;
             getAttributes(): any;
             getNextSibling(): Element;
             getParent(): ContainerElement;
             getPreviousSibling(): Element;
+            getText(): string;
             getType(): ElementType;
             isAtDocumentEnd(): boolean;
             merge(): Element;
@@ -396,6 +399,7 @@ declare namespace GoogleAppsScript {
          */
         enum ElementType {
             BODY_SECTION,
+            CODE_SNIPPET,
             COMMENT_SECTION,
             DATE,
             DOCUMENT,
@@ -420,7 +424,7 @@ declare namespace GoogleAppsScript {
             TABLE_OF_CONTENTS,
             TABLE_ROW,
             TEXT,
-            UNSUPPORTED,
+            UNSUPPORTED
         }
         /**
          * An element representing a mathematical expression. An Equation may contain EquationFunction, EquationSymbol, and Text elements. For more information on
